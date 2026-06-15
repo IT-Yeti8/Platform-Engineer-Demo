@@ -13,7 +13,9 @@ This project demonstrates how a developer can commit code to GitHub and have it 
 ## 🏗️ Architecture
 
 ```text
-👉 See the detailed Architecture Diagram.pdf
+📄 **Architecture Diagram**
+
+👉 [View Architecture Diagram (PDF)](https://github.com/IT-Yeti8/Platform-Engineer-Demo/raw/main/Architecture%20Diagram.pdf)
 ```
 
 ---
