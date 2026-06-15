@@ -13,37 +13,7 @@ This project demonstrates how a developer can commit code to GitHub and have it 
 ## 🏗️ Architecture
 
 ```text
-Terraform
-↓
-Ubuntu VM
-
-Ansible
-↓
-Docker
-↓
-Jenkins
-↓
-Kind Kubernetes Cluster
-
-GitHub
-↓
-Jenkins
-↓
-GHCR
-↓
-Kind + Helm
-↓
-ArgoCD
-↓
-Deploy Voting App
-
-Prometheus
-↓
-Grafana
-
-SonarQube
-↓
-Trivy
+👉 See the detailed Architecture Diagram.pdf
 ```
 
 ---
