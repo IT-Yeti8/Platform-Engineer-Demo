@@ -79,16 +79,6 @@ Instead of focusing on application development, the objective is to create a rel
 
 ---
 
-## 📦 Demo Application
-
-This project uses the Docker Voting App as a sample multi-service application.
-
-The application itself is not the focus of the project.
-
-The primary objective is to build and automate the platform responsible for deploying, managing, and monitoring the application.
-
----
-
 ## 📖 Project Journey
 
 ### 🏗️ Phase 1 – Infrastructure as Code
@@ -140,20 +130,15 @@ The primary objective is to build and automate the platform responsible for depl
 * Automate code quality and vulnerability checks
 * Enforce security validation before deployments
 
+## 🚀 Project Journey
+
+| Phase | Focus | Key Deliverables |
+| :--- | :--- | :--- |
+| **1. IaC** | Infrastructure | Provision Ubuntu platform server with Terraform; configure networking. |
+| **2. Config** | Server Setup | Ansible playbooks to install Docker, Jenkins, Kind (K8s), and Helm. |
+| **3. CI/CD** | Automation | Configure Jenkins pipelines to build and push images to GHCR. |
+| **4. K8s** | Platform | Package applications using Helm charts and deploy to Kind cluster. |
+| **5. GitOps**| Deployment | Deploy ArgoCD to automate and sync cluster state from Git. |
+| **6. Obs** | Observability | Deploy Prometheus and Grafana for health and performance metrics. |
+| **7. Sec** | Security | Integrate SonarQube and Trivy into pipelines for automated scanning. |
 ---
-
-## 💡 Why This Project Matters
-
-This project demonstrates the skills commonly required for modern Platform Engineer, DevOps Engineer, and Cloud Platform Engineer roles.
-
-It showcases:
-
-* Infrastructure automation
-* Kubernetes administration
-* GitOps workflows
-* CI/CD automation
-* Observability and monitoring
-* Security integration
-* Developer platform design
-
-Rather than focusing on application development, this project focuses on building the platform that enables developers to deliver software efficiently and reliably.
