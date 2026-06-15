@@ -15,7 +15,7 @@ This project demonstrates how a developer can commit code to GitHub and have it 
 ```text
 ## 🏗️ Architecture
 
-[See this architecture diagram](https://github.com/IT-Yeti8/Platform-Engineer-Demo/blob/main/Architecture%20Diagram.pdf)
+[See this architecture diagram](./Architecture%20Diagram.pdf)
 
 ---
 
