@@ -132,46 +132,19 @@ Instead of focusing on application development, the objective is to create a rel
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Architecture & Workflow
+
+A streamlined, end-to-end look at how the code moves from infrastructure setup to a secure, monitored deployment:
 
 ```mermaid
-graph TD
+graph LR
     %% Styling
-    classDef infra fill:#2b2d42,stroke:#8d99ae,stroke-width:2px,color:#fff;
-    classDef cicd fill:#3a86ff,stroke:#00b4d8,stroke-width:2px,color:#fff;
-    classDef gitops fill:#ff006e,stroke:#ffb703,stroke-width:2px,color:#fff;
-    classDef sec fill:#fb5607,stroke:#ff006e,stroke-width:2px,color:#fff;
-    classDef obs fill:#8338ec,stroke:#3a86ff,stroke-width:2px,color:#fff;
+    classDef step fill:#2b2d42,stroke:#8d99ae,stroke-width:2px,color:#fff;
+    
+    A[1. Terraform & Ansible] --> B[2. Jenkins CI Pipeline]
+    B --> C[3. Security Gate <br> SonarQube & Trivy]
+    C --> D[4. GitHub Registry <br> GHCR]
+    D --> E[5. GitOps Deployment <br> ArgoCD & Helm]
+    E --> F[6. Observability <br> Prometheus & Grafana]
 
-    %% Infrastructure & Config
-    subgraph Provisioning & Configuration
-        TF[Terraform] -->|Provisions| VM[Ubuntu VM]
-        AN[Ansible] -->|Configures| VM
-        VM -->|Hosts| DK[Docker]
-        DK -->|Runs| KJ[Jenkins & Kind K8s]
-    end
-    class TF,VM,AN,DK,KJ infra;
-
-    %% CI/CD Workflow
-    subgraph Pipeline & GitOps
-        GH[GitHub Commit] -->|Triggers| JK[Jenkins Pipeline]
-        JK -->|Pushes Image| CR[GitHub Container Registry]
-        CR -->|Pulled by| HM[Kind + Helm]
-        HM -->|Managed by| AR[ArgoCD]
-        AR -->|Deploys| AP[Docker Voting App]
-    end
-    class GH,JK,CR,HM,AR,AP cicd;
-
-    %% Security
-    subgraph Security Gate
-        SQ[SonarQube Code Scan] --> JK
-        TV[Trivy Container Scan] --> CR
-    end
-    class SQ,TV sec;
-
-    %% Observability
-    subgraph Metrics & Monitoring
-        PR[Prometheus] -->|Scrapes Metrics| AP
-        GR[Grafana] -->|Visualizes| PR
-    end
-    class PR,GR obs;
+    class A,B,C,D,E,F step;
