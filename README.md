@@ -12,42 +12,23 @@ This project demonstrates how a developer can commit code to GitHub and have it 
 
 ## 🏗️ Architecture
 
-```text
-## 🏗️ Architecture
-
 [See this architecture diagram](./Architecture%20Diagram.pdf)
 
 ---
 
 ## 🛠️ Skills Demonstrated
 
-* **Infrastructure as Code (IaC)**: Terraform automation
-* **Configuration Management**: Ansible playbooks
-* **CI/CD Pipelines**: Jenkins automation
-* **Containerization**: Docker image builds
-* **Container Registry**: GitHub Container Registry (GHCR)
-* **Kubernetes Administration**: Kind-based Kubernetes cluster
-* **GitOps Deployments**: ArgoCD synchronization
-* **Application Packaging**: Helm charts
-* **Monitoring & Observability**: Prometheus and Grafana
-* **Security Scanning**: SonarQube and Trivy
-* **Linux Administration**: Ubuntu server management
-
----
-
-## 🎯 Project Goals
-
-This project is designed to simulate a real-world Platform Engineering environment.
-
-Instead of focusing on application development, the objective is to create a reliable platform that enables developers to:
-
-* Build applications automatically
-* Scan code and container images
-* Store container images in a registry
-* Deploy applications through GitOps workflows
-* Monitor workloads and cluster health
-* Reduce manual operational tasks
-
+| Area | Tools & Approach |
+| :--- | :--- |
+| **Infrastructure as Code (IaC)** | Terraform automation |
+| **Configuration Management** | Ansible playbooks |
+| **CI/CD Pipelines** | Jenkins automation and pipeline development |
+| **Containerization** | Docker image builds, deployment, and GitHub Container Registry (GHCR) |
+| **Kubernetes** | Kind-based clusters, kubectl, and Helm chart packaging |
+| **GitOps Deployments** | ArgoCD synchronization and automated delivery |
+| **Monitoring & Observability** | Prometheus metrics, Grafana dashboards, and alerting loops |
+| **Security Automation** | SonarQube code analysis, Trivy scanning, and Kubernetes Network Policies |
+| **Operations & DevEx** | Makefile automation, runbooks, and rollback procedures |
 ---
 
 ## 📖 Project Journey
@@ -60,11 +41,8 @@ Instead of focusing on application development, the objective is to create a rel
 
 ### ⚙️ Phase 2 – Configuration Management
 
-* Configure the server using Ansible
-* Install Docker
-* Install Jenkins
-* Install Kind Kubernetes cluster
-* Install kubectl and Helm
+* Configure the server using Ansible playbooks
+* Automated installation of Docker, Jenkins, Kind, kubectl, and Helm
 
 ### 🚀 Phase 3 – CI/CD Automation
 
@@ -81,41 +59,23 @@ Instead of focusing on application development, the objective is to create a rel
 * Manage application lifecycle through Kubernetes
 
 ### 🔄 Phase 5 – GitOps Deployment
-
-* Deploy ArgoCD
-* Connect Git repositories to Kubernetes
-* Automate deployments using GitOps workflows
-* Synchronize cluster state from Git
+* Deploy ArgoCD to the cluster
+* Connect Git repositories to track configuration states
+* Automate application deployments using GitOps continuous delivery workflows
+* Eliminate manual `kubectl apply` commands by synchronizing cluster state from Git
 
 ### 📊 Phase 6 – Observability
-
-* Deploy Prometheus
-* Deploy Grafana
-* Monitor cluster health and application performance
-* Create dashboards for metrics and resource utilization
+* Deploy Prometheus to collect cluster metrics and application performance data
+* Deploy Grafana to build centralized monitoring dashboards
+* Establish a complete operational feedback loop with customized metrics visualization
 
 ### 🔒 Phase 7 – Security Automation
+* Integrate SonarQube into Jenkins pipelines for automated static code analysis
+* Run Trivy container image scans to catch vulnerabilities before images hit the registry
+* Enforce Kubernetes Network Policies to restrict pod-to-pod traffic and isolate workloads
 
-* Integrate SonarQube into Jenkins pipelines
-* Integrate Trivy container image scanning
-* Automate code quality and vulnerability checks
-* Enforce security validation before deployments
+### 🛠️ Phase 8 — Operations & Developer Experience
+* Document deployment, rollback, and troubleshooting procedures in dedicated runbooks
+* Implement a Makefile to provide single-command operations (`make deploy`, `make destroy`) to optimize platform management
 
 ---
-
-## 🏗️ Architecture & Workflow
-
-A streamlined, end-to-end look at how the code moves from infrastructure setup to a secure, monitored deployment:
-
-```mermaid
-graph LR
-    %% Styling
-    classDef step fill:#2b2d42,stroke:#8d99ae,stroke-width:2px,color:#fff;
-    
-    A[1. Terraform & Ansible] --> B[2. Jenkins CI Pipeline]
-    B --> C[3. Security Gate <br> SonarQube & Trivy]
-    C --> D[4. GitHub Registry <br> GHCR]
-    D --> E[5. GitOps Deployment <br> ArgoCD & Helm]
-    E --> F[6. Observability <br> Prometheus & Grafana]
-
-    class A,B,C,D,E,F step;
