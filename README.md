@@ -130,15 +130,48 @@ Instead of focusing on application development, the objective is to create a rel
 * Automate code quality and vulnerability checks
 * Enforce security validation before deployments
 
-## 🚀 Project Journey
-
-| Phase | Focus | Key Deliverables |
-| :--- | :--- | :--- |
-| **1. IaC** | Infrastructure | Provision Ubuntu platform server with Terraform; configure networking. |
-| **2. Config** | Server Setup | Ansible playbooks to install Docker, Jenkins, Kind (K8s), and Helm. |
-| **3. CI/CD** | Automation | Configure Jenkins pipelines to build and push images to GHCR. |
-| **4. K8s** | Platform | Package applications using Helm charts and deploy to Kind cluster. |
-| **5. GitOps**| Deployment | Deploy ArgoCD to automate and sync cluster state from Git. |
-| **6. Obs** | Observability | Deploy Prometheus and Grafana for health and performance metrics. |
-| **7. Sec** | Security | Integrate SonarQube and Trivy into pipelines for automated scanning. |
 ---
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    %% Styling
+    classDef infra fill:#2b2d42,stroke:#8d99ae,stroke-width:2px,color:#fff;
+    classDef cicd fill:#3a86ff,stroke:#00b4d8,stroke-width:2px,color:#fff;
+    classDef gitops fill:#ff006e,stroke:#ffb703,stroke-width:2px,color:#fff;
+    classDef sec fill:#fb5607,stroke:#ff006e,stroke-width:2px,color:#fff;
+    classDef obs fill:#8338ec,stroke:#3a86ff,stroke-width:2px,color:#fff;
+
+    %% Infrastructure & Config
+    subgraph Provisioning & Configuration
+        TF[Terraform] -->|Provisions| VM[Ubuntu VM]
+        AN[Ansible] -->|Configures| VM
+        VM -->|Hosts| DK[Docker]
+        DK -->|Runs| KJ[Jenkins & Kind K8s]
+    end
+    class TF,VM,AN,DK,KJ infra;
+
+    %% CI/CD Workflow
+    subgraph Pipeline & GitOps
+        GH[GitHub Commit] -->|Triggers| JK[Jenkins Pipeline]
+        JK -->|Pushes Image| CR[GitHub Container Registry]
+        CR -->|Pulled by| HM[Kind + Helm]
+        HM -->|Managed by| AR[ArgoCD]
+        AR -->|Deploys| AP[Docker Voting App]
+    end
+    class GH,JK,CR,HM,AR,AP cicd;
+
+    %% Security
+    subgraph Security Gate
+        SQ[SonarQube Code Scan] --> JK
+        TV[Trivy Container Scan] --> CR
+    end
+    class SQ,TV sec;
+
+    %% Observability
+    subgraph Metrics & Monitoring
+        PR[Prometheus] -->|Scrapes Metrics| AP
+        GR[Grafana] -->|Visualizes| PR
+    end
+    class PR,GR obs;
