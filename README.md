@@ -12,7 +12,7 @@ This project demonstrates how a developer can commit code to GitHub and have it 
 
 ## 🏗️ Architecture
 
-[See this architecture diagram](./Architecture%20Diagram.pdf)
+[View Architecture & CI/CD Diagram](./Architecture%20%26%20CICD%20Diagram.png)
 
 ---
 
