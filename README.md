@@ -16,13 +16,26 @@ This project demonstrates how a developer can commit code to GitHub and have it 
 
 ---
 
+ ## 🧪 Demo Application
+
+The platform deploys the Docker Voting App as a sample workload to demonstrate:
+
+- CI/CD automation
+- Container image management
+- GitOps deployments
+- Kubernetes orchestration
+- Monitoring and observability
+- Security automation
+
+---
+
 ## 🛠️ Skills Demonstrated
 
 | Area | Tools & Approach |
 | :--- | :--- |
 | **Infrastructure as Code (IaC)** | Terraform automation |
 | **Configuration Management** | Ansible playbooks |
-| **CI/CD Pipelines** | Jenkins automation and pipeline development |
+| **CI/CD Pipelines** | Jenkins automation and pipeline development, and automated linting workflows |
 | **Containerization** | Docker image builds, deployment, and GitHub Container Registry (GHCR) |
 | **Kubernetes** | Kind-based clusters, kubectl, and Helm chart packaging |
 | **GitOps Deployments** | ArgoCD synchronization and automated delivery |
@@ -46,9 +59,13 @@ This project demonstrates how a developer can commit code to GitHub and have it 
 
 ### 🚀 Phase 3 – CI/CD Automation
 
+* Configure GitHub as the source control platform
 * Configure Jenkins pipelines
 * Clone and build the Docker Voting App
+* Validate Terraform configurations using terraform fmt and TFLint
+* Lint Kubernetes manifests and Helm charts
 * Build Docker images automatically
+* Execute Build, Test, Security, Release, and Deploy stages
 * Push container images to GitHub Container Registry (GHCR)
 
 ### ☸️ Phase 4 – Kubernetes Platform
@@ -56,10 +73,11 @@ This project demonstrates how a developer can commit code to GitHub and have it 
 * Deploy a Kind Kubernetes cluster
 * Package applications using Helm charts
 * Deploy workloads and services to Kubernetes
-* Manage application lifecycle through Kubernetes
+* Orchestrate containerized workloads using Kubernetes
 
 ### 🔄 Phase 5 – GitOps Deployment
 * Deploy ArgoCD to the cluster
+* Deploy Helm-based applications through ArgoCD
 * Connect Git repositories to track configuration states
 * Automate application deployments using GitOps continuous delivery workflows
 * Eliminate manual `kubectl apply` commands by synchronizing cluster state from Git
