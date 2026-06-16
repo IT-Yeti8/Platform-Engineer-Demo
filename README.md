@@ -35,7 +35,7 @@ The platform deploys the Docker Voting App as a sample workload to demonstrate:
 | :--- | :--- |
 | **Infrastructure as Code (IaC)** | Terraform automation |
 | **Configuration Management** | Ansible playbooks |
-| **CI/CD Pipelines** | Jenkins automation and pipeline development, and automated linting workflows |
+| **CI/CD Pipelines** | Jenkins automation and pipeline development, validation, and automated linting workflows |
 | **Containerization** | Docker image builds, deployment, and GitHub Container Registry (GHCR) |
 | **Kubernetes** | Kind-based clusters, kubectl, and Helm chart packaging |
 | **GitOps Deployments** | ArgoCD synchronization and automated delivery |
